@@ -6,6 +6,9 @@ With containerd, `docker.io` is the default image registry. You can also set up 
 
 To configure image registries create/modify the `/etc/containerd/config.toml` as follows:
 ```toml
+# Config file is parsed as version 1 by default.
+# So plugin names are the short form, i.e. "cri".
+# You need "version = 2" at the top to switch to the long form.
 [plugins.cri.registry.mirrors]
   [plugins.cri.registry.mirrors."docker.io"]
     endpoint = ["https://registry-1.docker.io"]
